@@ -1,0 +1,5 @@
+{
+    "invalid_field": "You forgot to provide one of the required login fields.",
+    "invalid_user": "Invalid or non-existent user.",
+    "invalid_password": "The password doesn't match the user's credentials."
+}
