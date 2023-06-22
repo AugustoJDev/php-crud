@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="../css/member.css" type="text/css">
 </head>
 <body>
-    <h1>Seja bem-vindo ao painel de usuário: <?php include '../configs/userInfos.php' ?></h1>
+    <h1>Welcome to the user panel: <?php include '../configs/userInfos.php' ?></h1>
 	<table>
         <tr>
             <td>
