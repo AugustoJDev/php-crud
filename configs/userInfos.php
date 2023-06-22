@@ -2,14 +2,17 @@
 
 <?php 
 
-    include '../database.php';
+    include '../database/database.php';
 
     $conn = OpenCon();
+    $userToken = $_SESSION['token'];
+
+    if(empty($userToken)) header("Location: /");
 
     // SQL query to find the table
     $sql = "SELECT name, token
             FROM admin
-            WHERE token = '" . $_SESSION['token'] . "'";
+            WHERE token = '" . $userToken . "'";
 
     $result = $conn->query($sql);
 

@@ -1,5 +1,5 @@
 <?php 
-    include '../database.php';
+    include '../database/database.php';
 
     // Return an error if user credencials $_POST are empty
     if (in_array(false, [

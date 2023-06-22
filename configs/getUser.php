@@ -14,7 +14,7 @@
             while($row = $result->fetch_assoc()) {
 
               // Invalid password redirect
-              if ($pass != $row['password']) {
+              if ($pass!= $row['password']) {
                 header("Location: ../index.php?error=invalid_password");
                 die();
               }

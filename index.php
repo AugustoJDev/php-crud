@@ -45,6 +45,13 @@
 
 <?php
 
+    include './database/findOnDb.php';
+
+    // Redirects to dashboard if the admin has logged
+    if(!empty($_SESSION['token'])) {
+        findOnDb($_SESSION['token']);
+    }
+
     // Get page URL and parse url params
     $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";  
     $CurPageURL = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];  
