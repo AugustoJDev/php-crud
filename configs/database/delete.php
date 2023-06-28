@@ -7,19 +7,15 @@ $data = json_decode($requestPayload, true);
 
 if ($data !== null) {
     $name = $data['name'];
-    $contact = $data['contact'];
-    $delivery = $data['delivery'];
-    $value = $data['value'];
 
     $conn = OpenCon();
 
-    $sql = "INSERT INTO users (name, contact, delivery, value) 
-            VALUES ('$name', '$contact', '$delivery', '$value')";
+    $sql = "DELETE FROM users WHERE name='" . $name . "';";
 
     $result = $conn->query($sql);
 
     if ($result) {
-        echo json_encode("Successfully added to the database.");
+        echo json_encode("Successfully deleted from the database.");
     } else {
         echo json_encode("Error: " . $conn->error);
     }

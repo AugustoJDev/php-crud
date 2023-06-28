@@ -13,13 +13,14 @@ if ($data !== null) {
 
     $conn = OpenCon();
 
-    $sql = "INSERT INTO users (name, contact, delivery, value) 
-            VALUES ('$name', '$contact', '$delivery', '$value')";
+    $sql = "UPDATE users
+            SET contact = '" . $contact . "', delivery = '" . $delivery . "', value = '" . $value . "'
+            WHERE name = '" . $name . "';";
 
     $result = $conn->query($sql);
 
     if ($result) {
-        echo json_encode("Successfully added to the database.");
+        echo json_encode("Successfully edited in database.");
     } else {
         echo json_encode("Error: " . $conn->error);
     }

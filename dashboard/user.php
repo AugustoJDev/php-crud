@@ -53,6 +53,6 @@
             </td>
         </tr>
     </table>
-    <script src="user.js"></script>
+    <script src="manager.js"></script>
 </body>
 </html>

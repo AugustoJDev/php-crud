@@ -22,7 +22,7 @@
               // Sets the session "token" to stay the user logged while he not logout
               setToken($conn, $name);
 
-              header("Location: ../dashboard/member.php");
+              header("Location: ../dashboard/user.php");
             }
           } else {
 

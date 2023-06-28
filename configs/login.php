@@ -9,7 +9,7 @@
         header("Location: ../index.php?error=invalid_field");
         die();
     } 
-    // Checks if the user exists in database and continue the login system ( Ref.: ../dashboard/member.php )
+    // Checks if the user exists in database and continue the login system ( Ref.: ../dashboard/user.php )
     else {
         $username = $_POST['username'];
         $password = $_POST['password'];
