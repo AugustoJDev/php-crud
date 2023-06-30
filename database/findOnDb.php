@@ -10,7 +10,7 @@
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            return header("Location: /dashboard/member.php");
+            return header("Location: /dashboard/user.php");
         } else {
             return session_unset();
         }

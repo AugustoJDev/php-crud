@@ -1,6 +1,66 @@
+/* BODY */
+
+body {
+    background: linear-gradient(45deg, #8e2de2, #4a00e0);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 body > table{
     width: 80%;
 }
+
+/* BUTTONS - EDIT AND DELETE */
+
+.edit {
+  background-color: #28a745;
+  color: white;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.edit:hover {
+  background-color: #218838;
+}
+
+.edit:active {
+  background-color: #1e7e34;
+}
+
+.delete {
+  background-color: #ff0000;
+  color: white;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.delete:hover {
+  background-color: #b40202;
+}
+
+.delete:active {
+  background-color: #5f0000;
+}
+
+/* FORM */
+
+form > div {
+    padding: 10px
+}
+
+/* TABLE */
 
 table{
     border-collapse: collapse;
@@ -10,7 +70,8 @@ table.list{
 }
 
 td, th {
-    border: 1px solid #dddddd;
+    background-color: #dddddd;
+    border: 1px solid #000000;
     text-align: left;
     padding: 8px;
 }
@@ -30,7 +91,7 @@ input[type=text], input[type=number] {
 
 input[type=submit]{
     width: 30%;
-    background-color: #ddd;
+    background: linear-gradient(to right, #4776E6, #8e54e9);
     color: #000;
     padding: 14px 20px;
     margin: 8px 0;
@@ -57,4 +118,23 @@ label.validation-error{
 
 .hide{
     display:none;
+}
+
+input[type="date"] {
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+input[type="date"]::placeholder {
+  color: #999;
+}
+
+input[type="date"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px #999;
 }

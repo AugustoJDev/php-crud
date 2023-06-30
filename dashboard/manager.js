@@ -115,8 +115,8 @@ function addToList(data) {
     cell4 = newRow.insertCell(3);
     cell4.innerHTML = data.value;
     cell4 = newRow.insertCell(4);
-    cell4.innerHTML = `<a onClick="onEdit(this)">Edit</a>
-                       <a onClick="onDelete(this)">Delete</a>`;
+    cell4.innerHTML = `<a onClick="onEdit(this)"><button class="edit">Edit</button></a>
+                       <a onClick="onDelete(this)"><button class="delete">Delete</button></a>`;
 }
 
 // Send a post request to an especify endpoint using the data received, like add an user to list or delete this same user

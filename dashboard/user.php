@@ -15,19 +15,19 @@
             <td>
             <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
                     <div>
-                        <label>Name</label><label class="validation-error hide" id="nameValidationError">This field is required.</label>
+                        <label><strong>Name</strong></label><label class="validation-error hide" id="nameValidationError">This field is required.</label>
                         <input type="text" name="name" id="name">
                     </div>
                     <div>
-                        <label>Contact</label>
+                        <label><strong>Contact</strong></label>
                         <input type="text" name="contact" id="contact">
                     </div>
                     <div>
-                        <label>Delivery</label>
-                        <input type="date" name="delivery" id="delivery">
+                        <label><strong>Delivery</strong></label>
+                        <input type="date" class="date-input" name="delivery" id="delivery">
                     </div>
                     <div>
-                        <label>Value</label>
+                        <label><strong>Value</strong></label>
                         <input type="text" name="value" id="value">
                     </div>
                     <div  class="form-action-buttons">
