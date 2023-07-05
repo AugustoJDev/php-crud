@@ -30,6 +30,9 @@
                         <label><strong>Value</strong></label>
                         <input type="text" name="value" id="value">
                     </div>
+                    <div class="modalBtn">
+                        <button id="openModalBtn">Products</button>
+                    </div>
                     <div  class="form-action-buttons">
                         <input type="submit" value="Submit">
                     </div>
@@ -53,6 +56,14 @@
             </td>
         </tr>
     </table>
-    <script src="manager.js"></script>
+    <div id="prodModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Modal Title</h2>
+            <p>Modal content goes here...</p>
+        </div>
+    </div>
+    <script src="js/manager.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 </html>

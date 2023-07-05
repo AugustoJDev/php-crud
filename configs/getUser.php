@@ -3,21 +3,23 @@
 <?php
     function getUser($name, $pass) {
 
+        include "../database/database.php";
+
         $conn = OpenCon();
 
-        $sql = "SELECT * FROM " . $name;
+        $sql = "SELECT * FROM admin WHERE name = " . $name;
         $result = $conn->query($sql);
 
         // Check if the user exists or the password is incorrect
-        if ($result->num_rows > 0) {
+        if (mysqli_num_rows($result) > 0) {
 
             while($row = $result->fetch_assoc()) {
 
               // Invalid password redirect
-              if ($pass!= $row['password']) {
+              if ($pass != $row['password']) {
                 header("Location: ../index.php?error=invalid_password");
                 die();
-              }
+              };
 
               // Sets the session "token" to stay the user logged while he not logout
               setToken($conn, $name);

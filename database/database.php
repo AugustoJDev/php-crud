@@ -1,19 +1,18 @@
 <?php
 
-// Connect or close the local database using xampp
-function OpenCon() {
-    $dbhost = "localhost";
-    $dbuser = "root";
-    $dbpass = "";
-    $db = "registereds";
+    function OpenCon() {
 
-    $conn = new mysqli($dbhost, $dbuser, $dbpass, $db) or die("Connect failed: %s\n". $conn -> error);
- 
-    return $conn;
-}
+        $envPath = 'env.ini';
+        $env = parse_ini_file($envPath);
 
-function CloseCon($conn) {
-    $conn -> close();
-}
+        $conn = mysqli_init();
+        $conn->real_connect($env["dbhost"], $env["dbuser"], $env["dbpass"], $env["db"], $env["port"]);
+
+        return $conn;
+    }
+
+    function CloseCon($conn) {
+        $conn -> close();
+    }
    
 ?>

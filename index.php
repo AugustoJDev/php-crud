@@ -26,18 +26,6 @@
             </div>
 
             <input type="submit" value="Continue">
-
-            <div class="footer">
-                <span>Or create a new account</span>
-                <div class="social-fields">
-                    <div class="social-field register">
-                        <a href="/register.php">
-                            <i class="fab fa-register"></i>
-                            Register
-                        </a>
-                    </div>
-                </div>
-            </div>
         </form>
     </main>
 </body>
