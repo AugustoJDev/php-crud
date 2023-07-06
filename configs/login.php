@@ -1,13 +1,12 @@
 <?php 
-    include '../database/database.php';
-
-    echo getenv("PASSWORD");
+    include "../database/database.php";
 
     // Return an error if user credencials $_POST are empty
     if (in_array(false, [
         $_POST['username'], 
         $_POST['password']
     ])) {
+
         header("Location: ../index.php?error=invalid_field");
         die();
     } 

@@ -2,12 +2,9 @@
 
 <?php
     function getUser($name, $pass) {
-
-        include "../database/database.php";
-
         $conn = OpenCon();
 
-        $sql = "SELECT * FROM admin WHERE name = " . $name;
+        $sql = 'SELECT * FROM admin WHERE name = "' . $name . '"' ;
         $result = $conn->query($sql);
 
         // Check if the user exists or the password is incorrect

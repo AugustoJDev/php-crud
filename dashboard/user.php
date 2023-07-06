@@ -30,8 +30,8 @@
                         <label><strong>Value</strong></label>
                         <input type="text" name="value" id="value">
                     </div>
-                    <div class="modalBtn">
-                        <button id="openModalBtn">Products</button>
+                    <div class="frame" id="prodButton" onClick="modalManager();">
+                        <button class="configs-btn btn-1">Products</button>
                     </div>
                     <div  class="form-action-buttons">
                         <input type="submit" value="Submit">
@@ -56,14 +56,58 @@
             </td>
         </tr>
     </table>
-    <div id="prodModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Modal Title</h2>
-            <p>Modal content goes here...</p>
-        </div>
-    </div>
+
     <script src="js/manager.js"></script>
-    <script src="js/modal.js"></script>
+
+    <script>
+        function modalManager() {
+
+            const baseUrl = window.location.href;
+
+            console.log(baseUrl);
+
+            if(!baseUrl.includes('?prodModal=')) {
+                window.location.href = `${baseUrl}?prodModal=true`
+            } else if (baseUrl.includes('?prodModal=true')) {
+                window.location.href = baseUrl.replace("true", "false")
+            } else if (baseUrl.includes('?prodModal=false')) {
+                window.location.href = baseUrl.replace("false", "true")
+            }
+        }
+    </script>
+
+    <?php if(isset($_GET['prodModal']) && $_GET['prodModal'] === 'true'): ?>
+
+        <script>
+            (function() {
+                $('#prodModal').modal('show');
+            });
+        </script>
+
+        <div class="modal fade" id="prodModal" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit Data</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="fetched-data"><?php $message ?></div> 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" onClick="modalManager();">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <?php endif; ?>
+    <?php if(isset($_GET['prodModal']) && $_GET['prodModal'] === 'false'): ?>
+        <script>
+            (function() {
+                $('#myModal').modal('hide');
+            });
+        </script>
+    <?php endif; ?>
 </body>
 </html>
