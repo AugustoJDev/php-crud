@@ -88,18 +88,34 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Edit Data</h4>
+                        <button type="button" class="close" onClick="modalManager();">&times;</button>
+                        <h4 class="modal-title">Add Products</h4>
                     </div>
                     <div class="modal-body">
-                        <div class="fetched-data"><?php $message ?></div> 
+                        <div class="fetched-data">
+                            <div class="selectItem">
+                                <label class="menu-items">Select an Item:</label>
+                                <select id="menuSection" class="productsMenu"></select>
+                            </div>
+                            <div class="selectQuantity">
+                                <label class="item-value">Select Quantity:</label>
+                                <input type="number" min="1" name="value" id="productQuantity">
+                            </div>
+                            <div class="finalValue">
+                                <label id="labelProd">Final Value: $0</label>
+                            </div>
+                        </div> 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" onClick="modalManager();">Close</button>
+                        <button type="button" class="closeBtn" onClick="modalManager();" style="--c:#E95A49">Close</button>
+                        <button type="button" class="saveBtn">Add</button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <script src="js/products.js"></script>
+        <script src="js/utilities/calcProd.js"></script>
 
     <?php endif; ?>
     <?php if(isset($_GET['prodModal']) && $_GET['prodModal'] === 'false'): ?>

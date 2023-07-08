@@ -3,7 +3,7 @@ var selectedRow = null;
 // This OnLoad get all users of database and lists all in the admin page
 
 window.onload = async function () {
-    const url = '/configs/database/getAll.php';
+    const url = '/configs/database/getAllUsers.php';
 
     try {
         const response = await fetch(url);
