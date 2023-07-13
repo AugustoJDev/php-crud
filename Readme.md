@@ -31,3 +31,9 @@ Until this moment, i'm developing this code
     - [+] The file `dashboard/js/utilities.js` get the quantity and multiply with the product value in the modal and returns the final value to the label
     - [>] The CSS of buttons in modal were changeds, see in `css/member.css`
     - [-] The file `configs/database/getAll.php` is removed
+
+- **07/13/2023**
+    - [+] Added `dashboard/js/utilities/modalManager.js` to open the **see** and **add** modal
+    - [+] **See Products** button has been added and **See Products** modal too | `user.php:41`
+    - [*] Validator added to others fields ( contact, delivery and value ) in `dashboard/user.php` and `dashboard/js/manager.js`
+    - [*] Functions who where in `dashboard/js/manager.js` were passed to the **window.onload** in `dashboard/js/products.js` and their names are changed

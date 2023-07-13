@@ -141,10 +141,6 @@ box-shadow: 0 0 5px #999;
 
 /* MODAL */
 
-.frame {
-  position: absolute;
-  text-align: center;
-}
 .configs-btn {
   width: 130px;
   height: 40px;
@@ -159,6 +155,20 @@ box-shadow: 0 0 5px #999;
   display: inline-block;
 }
 
+#buttonContainer {
+  display: flex;
+  align-items: center;
+}
+
+.frame,
+#seeButton {
+  margin-right: 10px;
+}
+
+#seeButton {
+  cursor: pointer;
+}
+
 #prodButton > button {
   transition: all 0.3s ease;
 }
@@ -170,7 +180,7 @@ box-shadow: 0 0 5px #999;
   4px 4px 5px 0px #0001;
 }
 
-#prodModal {
+.modal {
   background: rgb(202, 202, 202);
   position: absolute;
   float: left;
