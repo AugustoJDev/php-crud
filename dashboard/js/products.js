@@ -123,5 +123,6 @@ function addToCell(data) {
     cell4.innerHTML = data.value;
     cell4 = newRow.insertCell(4);
     cell4.innerHTML = `<a onClick="onEdit(this)"><button class="edit">Edit</button></a>
-                       <a onClick="onDelete(this)"><button class="delete">Delete</button></a>`;
+                       <a onClick="onDelete(this)"><button class="delete">Delete</button></a>
+                       <a onClick="onProducts(this)"><button class="products">Products</button></a>`;
 }

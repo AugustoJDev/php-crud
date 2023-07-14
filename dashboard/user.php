@@ -122,6 +122,29 @@
         </div>
     </div>
 
+    <div class="modal fade" id="seeUserProducts" role="dialog" hidden>
+        <div class="modal-dialog" role="document">
+            <div class="modal-header">
+                <button type="button" class="close" onClick="onProducts();">&times;</button>
+                <h4 class="modal-title">Your Products</h4>
+            </div>
+            <div class="modal-content">
+                <td>
+                    <table class="list" id="seeUserList">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Quantity</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody id="prodUserList"></tbody>
+                    </table>
+                </td>
+            </div>
+        </div>
+    </div>
+
     <script src="js/products.js"></script>
     <script src="js/utilities/calcProd.js"></script>
 </body>

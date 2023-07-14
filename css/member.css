@@ -54,6 +54,24 @@ background-color: #b40202;
 background-color: #5f0000;
 }
 
+.products {
+  background-color: #6c4bff;
+  color: white;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+  
+.products:hover {
+  background-color: #5028ff;
+}
+  
+.products:active {
+  background-color: #370bff;
+}
+
 /* FORM */
 
 form > div {

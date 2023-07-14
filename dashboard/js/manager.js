@@ -27,7 +27,7 @@ async function insertNewRecord(data) {
     function addToList(data) {
 
         localStorage.clear();
-    
+
         var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
         var newRow = table.insertRow(table.length);
         cell1 = newRow.insertCell(0);
@@ -64,6 +64,7 @@ function onEdit(td) {
     document.getElementById("delivery").value = selectedRow.cells[2].innerHTML;
     document.getElementById("value").value = selectedRow.cells[3].innerHTML;
 }
+
 function updateRecord(formData) {
     selectedRow.cells[0].innerHTML = formData.name;
     selectedRow.cells[1].innerHTML = formData.contact;
@@ -76,7 +77,9 @@ function updateRecord(formData) {
 async function onDelete(td) {
     if (confirm('Are you sure to delete this user?')) {
 
-        let data = { name: td.parentElement.parentElement.innerText.split("	")[0] };
+        let data = {
+            name: td.parentElement.parentElement.innerText.split("	")[0]
+        };
 
         POST('delete', data)
 
@@ -85,12 +88,62 @@ async function onDelete(td) {
         resetForm();
     }
 }
+
+async function onProducts(td) {
+
+    const modal = document.getElementById("seeUserProducts");
+
+    if (modal.hasAttribute("hidden")) {
+        modal.removeAttribute("hidden");
+
+        async function getById(_id) {
+            const endpoint = '/configs/database/getAllProducts.php';
+
+            const response = await fetch(endpoint);
+            const result = await response.json();
+
+            let product = result.find(p => p.id == _id);
+            product = `${product.name} ${product.size || ""}`;
+
+            return product;
+        };
+
+        let user = td.parentElement.parentElement;
+        user = user.cells[0].innerText;
+
+        let data = {
+            name: user
+        };
+
+        let productsString = await POST("getUser", data);
+
+        let productsArray = JSON.parse(productsString.products);
+
+        for (keys in productsArray) {
+            let name = await getById(productsArray[keys]._id);
+
+            let newData = {
+                name: name,
+                quantity: productsArray[keys].qtt,
+                value: productsArray[keys].fval
+            };
+
+            addToUserCell(newData);
+        }
+    } else {
+        modal.setAttribute("hidden", "");
+
+        var tableBody = document.getElementById("prodUserList");
+        tableBody.innerHTML = "";
+    };
+}
+
 function validate() {
     isValid = true;
 
     let fieldsId = ["name", "contact", "delivery", "value"];
 
-    for(field in fieldsId) {
+    for (field in fieldsId) {
 
         let name = fieldsId[field];
 
@@ -102,9 +155,20 @@ function validate() {
             if (!document.getElementById(`nameValidationError-${name}`).classList.contains("hide"))
                 document.getElementById(`nameValidationError-${name}`).classList.add("hide");
         }
-    } 
+    }
 
     return isValid;
+}
+
+async function addToUserCell(data) {
+    var table = document.getElementById("seeUserList").getElementsByTagName('tbody')[0];
+    var newRow = table.insertRow(table.length);
+    cell1 = newRow.insertCell(0);
+    cell1.innerHTML = data.name;
+    cell2 = newRow.insertCell(1);
+    cell2.innerHTML = data.quantity;
+    cell3 = newRow.insertCell(2);
+    cell3.innerHTML = data.value;
 }
 
 // Send a post request to an especify endpoint using the data received, like add an user to list or delete this same user
@@ -116,7 +180,7 @@ async function POST(endpoint, data) {
     const options = {
         method: 'POST',
         headers: {
-        'Content-Type': 'application/json',
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(data)
     };
@@ -125,8 +189,8 @@ async function POST(endpoint, data) {
         const response = await fetch(url, options);
         const result = await response.json();
 
-        console.log(result);
-    } catch(error) {
+        return result;
+    } catch (error) {
         console.log(error);
     };
 }

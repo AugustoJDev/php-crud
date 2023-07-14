@@ -35,5 +35,10 @@ Until this moment, i'm developing this code
 - **07/13/2023**
     - [+] Added `dashboard/js/utilities/modalManager.js` to open the **see** and **add** modal
     - [+] **See Products** button has been added and **See Products** modal too | `user.php:41`
-    - [*] Validator added to others fields ( contact, delivery and value ) in `dashboard/user.php` and `dashboard/js/manager.js`
+    - [+] Validator added to others fields ( contact, delivery and value ) in `dashboard/user.php` and `dashboard/js/manager.js`
     - [*] Functions who where in `dashboard/js/manager.js` were passed to the **window.onload** in `dashboard/js/products.js` and their names are changed
+
+- **07/14/2023**
+    - [+] **Products** button has been added, and this button enables to see the products list from a saved user in the table
+    - [+] Were added new functions to get the products from an user in `dashboard/js/manager.js` and the model div in `dashboard/user.php`
+    - [+] Added `configs/database/getUser.php` to get the user products from the database with a POST Request
